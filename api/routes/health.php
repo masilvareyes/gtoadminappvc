@@ -8,7 +8,7 @@ use App\Core\Routing\Router;
 
 function register_health_routes(Router $router): void
 {
-    $router->get('/health', static function (Request $request): Response {
+    $router->get('/api/health', static function (Request $request): Response {
         return Response::jsonSuccess([
             'status' => 'ok',
             'service' => env_string('APP_NAME', 'gtosvc-api'),

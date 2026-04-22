@@ -16,7 +16,7 @@ return static function (): void {
     register_providers();
 
     $router = new Router();
-    $registerRoutes = require $root . '/app/routes/api.php';
+    $registerRoutes = require $root . '/api/routes/api.php';
     $registerRoutes($router);
 
     $basePath = env_string('APP_BASE_PATH', null);

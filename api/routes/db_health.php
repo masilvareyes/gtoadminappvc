@@ -10,7 +10,7 @@ use App\Core\Routing\Router;
 
 function register_db_health_routes(Router $router): void
 {
-    $router->get('/health/db', static function (Request $request): Response {
+    $router->get('/api/health/db', static function (Request $request): Response {
         try {
             $queryBuilder = new QueryBuilder(Connection::getInstance());
             $result = $queryBuilder->fetchOne('SELECT 1 AS db_ok');

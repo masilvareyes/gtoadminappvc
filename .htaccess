@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /gtosVC2/
+
+    # Frontend publico bajo la raiz unica.
+    RewriteRule ^$ frontend.php [QSA,L]
+
+    # API publica bajo /api/*
+    RewriteRule ^api(?:/.*)?$ index.php [QSA,L]
+
+    # Archivos fisicos existentes (incluye index.php/frontend.php) se sirven directo.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Frontend publico bajo la raiz unica.
+    RewriteRule ^$ frontend.php [QSA,L]
+    RewriteRule ^(.+)$ frontend.php?path=$1 [QSA,L]
+</IfModule>
